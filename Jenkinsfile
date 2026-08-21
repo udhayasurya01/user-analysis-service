@@ -57,8 +57,8 @@ pipeline {
                         double passPercent = (passed / totalTests) * 100
                         echo "Pass Percentage: ${passPercent}%"
 
-                        if (passPercent < 50) {
-                            error("Test pass rate is ${passPercent}%, which is below the required 50%. Blocking build.")
+                        if (passPercent < 80) {
+                            error("Test pass rate is ${passPercent}%, which is below the required 80%. Blocking build.")
                         } else {
                             echo "Test pass rate OK — proceeding."
                         }
@@ -70,7 +70,7 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline passed — 50%+ tests OK!'
+            echo 'Pipeline passed — 80%+ tests OK!'
         }
         failure {
             echo 'Pipeline failed — check test results.'
