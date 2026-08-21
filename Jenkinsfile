@@ -136,25 +136,25 @@ pipeline {
             }
         }
 
-        stage('Deploy via Docker Compose') {
-            steps {
-                sshPublisher(publishers: [
-                    sshPublisherDesc(
-                        configName: 'office-server',
-                        transfers: [
-                            sshTransfer(
-                                execCommand: '''
-                                    cd /home/mani/user-analysis-service &&
-                                    docker load -i app-image.tar &&
-                                    docker network create devmexa || true &&
-                                    docker compose -f prod.yml up -d
-                                '''
-                            )
-                        ]
-                    )
-                ])
-            }
-        }
+     stage('Deploy via Docker Compose') {
+         steps {
+             sshPublisher(publishers: [
+                 sshPublisherDesc(
+                     configName: 'office-server',
+                     transfers: [
+                         sshTransfer(
+                             execCommand: '''
+                                 cd /home/mani/user-analysis-service &&
+                                 docker load -i app-image.tar &&
+                                 docker network create devmexa || true &&
+                                 docker compose -f docker_env/prod.yml up -d
+                             '''
+                         )
+                     ]
+                 )
+             ])
+         }
+     }
     }
 
     post {
