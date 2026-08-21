@@ -61,3 +61,6 @@ Important runtime environment variables:
 - `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`
 - `EUREKA_HOST`, `EUREKA_PORT`, or `EUREKA_CLIENT_SERVICEURL_DEFAULTZONE`
 - `SERVER_PORT`
+
+## Jenkins CI/CD
+This project uses Jenkins for automated build and testing with GitHub webhook integration.
